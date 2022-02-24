@@ -14,5 +14,5 @@ def testDebugAgent_Always_ShouldCallReportVuln(mocker):
     test_agent = debug_agent.DebugAgent(definition, settings)
     mock_report_vulnerability = mocker.patch('logging.Logger.info', return_value=None)
     test_agent.process(msg)
-    mock_report_vulnerability.assert_called_once_with('processing message', msg)
+    mock_report_vulnerability.assert_called_once_with('processing message %s', msg)
 
