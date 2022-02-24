@@ -45,7 +45,7 @@ class DebugAgent(agent.Agent, agent_report_vulnerability_mixin.AgentReportVulnMi
         Args:
             message: message containing any kind of data
         """
-        logger.info(f'processing message {message}')
+        logger.info('processing message', message)
 
 
 
