@@ -60,4 +60,4 @@ git clone https://github.com/Ostorlab/agent_debug.git && cd agent_debug
 
 
 ## License
-[Apache](./LICENSE)
+[Apache-2](./LICENSE)
