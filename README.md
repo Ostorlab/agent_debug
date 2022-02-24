@@ -1,4 +1,4 @@
-<h1 align="center">Agent Tsunami</h1>
+<h1 align="center">Agent Debug</h1>
 
 <p align="center">
 <img src="https://img.shields.io/badge/License-Apache_2.0-brightgreen.svg">
@@ -7,20 +7,9 @@
 <img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg">
 </p>
 
-_Debug is a test agent used to listen to all the assets and report their data._
+_Debug is a test agent used to help debug runtimes by logging all messages and important settings._
 
 ---
-
-
-## Getting Started
-To perform your first scan, simply run the following command.
-```shell
-ostorlab scan run --install --agent agent/ostorlab/debug ip 8.8.8.8
-```
-
-This command will download and install `agent/ostorlab/debug` and target the ip `8.8.8.8`.
-For more information, please refer to the [Ostorlab Documentation](https://github.com/Ostorlab/ostorlab/blob/main/README.md)
-
 
 ## Usage
 
@@ -34,9 +23,9 @@ Agent Debug can be installed directly from the ostorlab agent store or built fro
 
 You can then run the agent with the following command:
 ```shell
-ostorlab scan run --agent agent/ostorlab/debug ip 8.8.8.8
+ostorlab scan run --agent agent/ostorlab/debug ip 8.8.8.8 --follow agent/ostorlab/debug 
 ```
-
+--follow used to follow the logs of the debug agent
 
 ### Build directly from the repository
 

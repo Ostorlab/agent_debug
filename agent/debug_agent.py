@@ -1,4 +1,5 @@
 """Debug agent implementation"""
+import os
 import logging
 from rich import logging as rich_logging
 
@@ -13,7 +14,6 @@ logging.basicConfig(
     handlers=[rich_logging.RichHandler(rich_tracebacks=True)]
 )
 logger = logging.getLogger(__name__)
-logger.setLevel('DEBUG')
 
 
 class DebugAgent(agent.Agent, agent_report_vulnerability_mixin.AgentReportVulnMixin):
@@ -22,6 +22,9 @@ class DebugAgent(agent.Agent, agent_report_vulnerability_mixin.AgentReportVulnMi
     def start(self) -> None:
         """Start agent method."""
         logger.info('running start')
+        logger.info('environment variables %s', os.environ)
+        logger.info('agent definition %s', self.definition)
+        logger.info('agent settings %s', self.settings)
         self.report_vulnerability(entry=kb.Entry(
                         title='Debug Agent',
                         risk_rating='INFO',
@@ -50,5 +53,8 @@ class DebugAgent(agent.Agent, agent_report_vulnerability_mixin.AgentReportVulnMi
 
 
 if __name__ == '__main__':
+    loggers = [logging.getLogger(name) for name in logging.root.manager.loggerDict]
+    for l in loggers:
+        l.setLevel(logging.DEBUG)
     logger.info('starting agent ...')
     DebugAgent.main()
