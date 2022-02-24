@@ -13,7 +13,7 @@ logging.basicConfig(
     handlers=[rich_logging.RichHandler(rich_tracebacks=True)]
 )
 logger = logging.getLogger(__name__)
-logger.setLevel('INFO')
+logger.setLevel('DEBUG')
 
 
 class DebugAgent(agent.Agent, agent_report_vulnerability_mixin.AgentReportVulnMixin):
@@ -22,14 +22,6 @@ class DebugAgent(agent.Agent, agent_report_vulnerability_mixin.AgentReportVulnMi
     def start(self) -> None:
         """Start agent method."""
         logger.info('running start')
-
-    def process(self, message: m.Message) -> None:
-        """Process messages of type v3, it emits messages of type `v3.report.vulnerability` with the
-         technical report of the scan.
-        Args:
-            message: message containing any kind of data
-        """
-        logger.info('processing message')
         self.report_vulnerability(entry=kb.Entry(
                         title='Debug Agent',
                         risk_rating='INFO',
@@ -44,8 +36,17 @@ class DebugAgent(agent.Agent, agent_report_vulnerability_mixin.AgentReportVulnMi
                         targeted_by_ransomware = False,
                         targeted_by_nation_state = False
                     ),
-                    technical_detail=str(message),
+                    technical_detail='For debug',
                     risk_rating=agent_report_vulnerability_mixin.RiskRating.INFO)
+
+    def process(self, message: m.Message) -> None:
+        """Process messages of type v3, it emits messages of type `v3.report.vulnerability` with the
+         technical report of the scan.
+        Args:
+            message: message containing any kind of data
+        """
+        logger.info(f'processing message {message}')
+
 
 
 if __name__ == '__main__':
