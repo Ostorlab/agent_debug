@@ -1,6 +1,7 @@
 kind: Agent
 name: debug
 version: 0.0.1
+license: Apache-2
 description: |
   ## Usage
 
@@ -51,7 +52,7 @@ description: |
 
 
   ## License
-  [Apache](./LICENSE)
+  [Apache-2](./LICENSE)
 
 in_selectors:
   - v3
