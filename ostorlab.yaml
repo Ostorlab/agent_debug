@@ -63,7 +63,7 @@ description: |
   ## License
   [Apache](./LICENSE)
 
-in_selectors: .
+in_selectors:
   - v3
 out_selectors:
   - v3.report.vulnerability
