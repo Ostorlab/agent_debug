@@ -44,7 +44,7 @@ git clone https://github.com/Ostorlab/agent_debug.git && cd agent_debug
  3. Build the agent image using ostorlab cli.
 
  ```shell
- ostortlab agent build --file=ostorlab.yaml
+ ostorlab agent build --file=ostorlab.yaml
  ```
  You can pass the optional flag `--organization` to specify your organisation. The organization is empty by default.
 
