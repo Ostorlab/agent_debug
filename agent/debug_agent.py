@@ -55,7 +55,7 @@ class DebugAgent(agent.Agent, agent_report_vulnerability_mixin.AgentReportVulnMi
 
 if __name__ == "__main__":
     loggers = [logging.getLogger(name) for name in logging.root.manager.loggerDict]
-    for l in loggers:
+    for l in loggers:  # noqa: E741
         l.setLevel(logging.DEBUG)
     logger.info("starting agent ...")
     DebugAgent.main()
