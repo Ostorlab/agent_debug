@@ -1,13 +1,13 @@
 """Debug agent implementation"""
 
-import os
 import logging
-from rich import logging as rich_logging
+import os
 
-from ostorlab.agent.kb import kb
 from ostorlab.agent import agent
+from ostorlab.agent.kb import kb
 from ostorlab.agent.message import message as m
 from ostorlab.agent.mixins import agent_report_vulnerability_mixin
+from rich import logging as rich_logging
 
 logging.basicConfig(
     format="%(message)s",
@@ -56,7 +56,7 @@ class DebugAgent(agent.Agent, agent_report_vulnerability_mixin.AgentReportVulnMi
 
 if __name__ == "__main__":
     loggers = [logging.getLogger(name) for name in logging.root.manager.loggerDict]
-    for l in loggers:  # noqa: E741
+    for l in loggers:
         l.setLevel(logging.DEBUG)
     logger.info("starting agent ...")
     DebugAgent.main()
